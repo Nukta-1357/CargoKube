@@ -27,7 +27,7 @@ export default function Login() {
         if (error) throw error;
         navigate('/');
       } else {
-        const { error } = await supabase.auth.signUp({
+        const { data, error } = await supabase.auth.signUp({
           email,
           password,
           options: {
@@ -37,7 +37,22 @@ export default function Login() {
           },
         });
         if (error) throw error;
-        navigate('/onboarding');
+
+        if (data.user) {
+          const { error: profileError } = await supabase.from('users').insert({
+            id: data.user.id,
+            email: data.user.email || email,
+            full_name: fullName,
+            organization: 'My Organization',
+            role: 'admin',
+          });
+
+          if (profileError && !profileError.message.includes('duplicate')) {
+            console.error('Profile creation error:', profileError);
+          }
+
+          navigate('/onboarding');
+        }
       }
     } catch (err: any) {
       setError(err.message || 'An error occurred');

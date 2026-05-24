@@ -185,9 +185,12 @@ export default function Onboarding() {
           full_name: user.user_metadata?.full_name || 'User',
           organization: 'My Organization',
           role: 'admin',
+          updated_at: new Date().toISOString(),
         });
 
-        if (error) throw error;
+        if (error && !error.message.includes('duplicate')) {
+          console.error('Error updating user:', error);
+        }
       } catch (err) {
         console.error('Error creating user:', err);
       }

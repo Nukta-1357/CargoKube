@@ -115,7 +115,7 @@ export default function Terminal() {
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.1 }}
-              className={line.startsWith('✓') ? 'text-green-400' : line.startsWith('→') ? 'text-cyan-400' : ''}
+              className={line?.startsWith('✓') ? 'text-green-400' : line?.startsWith('→') ? 'text-cyan-400' : ''}
             >
               {line}
             </motion.div>

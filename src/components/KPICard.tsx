@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Video as LucideIcon } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import { LineChart, Line, ResponsiveContainer } from 'recharts';
 
 interface KPICardProps {
