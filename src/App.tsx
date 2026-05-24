@@ -11,6 +11,7 @@ import Calculator from './pages/Calculator';
 import Settings from './pages/Settings';
 import Login from './pages/Login';
 import Onboarding from './pages/Onboarding';
+import Topology from './pages/Topology';
 
 function App() {
   const { user, setUser, setLoading } = useAuthStore();
@@ -54,6 +55,7 @@ function App() {
         <Route path="/" element={user ? <Layout /> : <Navigate to="/login" />}>
           <Route index element={<Dashboard />} />
           <Route path="observability" element={<Observability />} />
+          <Route path="topology" element={<Topology />} />
           <Route path="carbon-map" element={<CarbonMap />} />
           <Route path="clusters" element={<Clusters />} />
           <Route path="calculator" element={<Calculator />} />

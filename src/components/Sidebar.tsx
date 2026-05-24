@@ -13,12 +13,14 @@ import {
   ChevronLeft,
   ChevronRight,
   Zap,
+  GitBranch,
 } from 'lucide-react';
 import { useAuthStore } from '../store/authStore';
 
 const navItems = [
   { path: '/', icon: LayoutDashboard, label: 'Dashboard' },
   { path: '/observability', icon: Activity, label: 'Observability' },
+  { path: '/topology', icon: GitBranch, label: 'Topology' },
   { path: '/carbon-map', icon: Map, label: 'Carbon Map' },
   { path: '/clusters', icon: Layers, label: 'Clusters' },
   { path: '/calculator', icon: Calculator, label: 'Calculator' },
